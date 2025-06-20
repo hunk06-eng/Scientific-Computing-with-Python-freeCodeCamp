@@ -8,13 +8,13 @@ def vigenere(text, key, mode=1):
     
     for char in text:
         # pass any symbols, numbers, punctuation marks without encrypting/decrypting them.
-        if char.isalpha() == False:
+        if not char.isalpha():
             final_message += char
 
         else:
             # find index of char using ascii table
             char_index = (ord(char)-65) if char.isupper() else (ord(char)-97)
-            # key_loc keeps track of which letter (in the key) the iteration stopped at during encryption/decryption process.
+            # key_loc keeps track of which letter (in the key) the iteration stopped at during an encryption/decryption process.
             # modulo is used to circle through the key once the key_loc variable exceeds the key's length.
             key_index = (ord(key[key_loc % len(key)])-65) if key[key_loc % len(key)].isupper() else (ord(key[key_loc % len(key)]) - 97)
             key_loc += 1
@@ -29,18 +29,18 @@ def get_char_by_index(rotation, isUpper):
     # using the ascii table, if the character in the text is uppercase, add the rotation amount to 'A' -- > 65 on ascii table, then convert integer to character.
     # if the character in the text is lowercase, add the rotation mount to 'a' -- > 97 on ascii table, then convert integer to character using chr().
 
-    return (chr(65+rotation) if isUpper else chr(97+rotation))
+    return chr(65 + rotation) if isUpper else chr(97 + rotation)
 
 # while loop so the script runs as many times as needed.
 while True:
-    text = input('Enter the text you want to encrypt/decrypt: ')
-    key = input('Enter the key to use for encryption/decryption: ')
-    mode = int(input('Enter 1 for encryption, -1 for decryption: '))
+    text_in = input('Enter the text you want to encrypt/decrypt: ')
+    key_in = input('Enter the key to use for encryption/decryption: ')
+    mode_in = int(input('Enter 1 for encryption, -1 for decryption: '))
 
-    if len(key) == 0:
-        key = input('Please enter a key for the script to proceed: ')
+    if len(key_in) == 0:
+        key_in = input('Please enter a key for the script to proceed: ')
 
-    print(vigenere(text, key, mode))
+    print(vigenere(text_in, key_in, mode_in))
 
     print("\nEnter 0 to restart script, 1 to close it.")
     if int(input()):
