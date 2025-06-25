@@ -93,11 +93,11 @@ def main():
             continue
 
         mode_in = input("Enter 1 for encryption, -1 for decryption: ")
-        if int(mode_in) not in [1, -1]:
+        if mode_in not in ['1', '-1']:
             if mode_in == "81": # same concept as before, if mode_in is invalid, it could be the user entering 81 or 84.
                 print("Exiting the script.")
                 break
-            print("Invalid key baby girl, enter 1 for encryption, -1 for decryption.") # baby girl you didn't follow instructions
+            print("Invalid mode baby girl, enter 1 for encryption, -1 for decryption.") # baby girl you didn't follow instructions
             continue
 
         print(vigenere(text_in, key_in, int(mode_in)))
