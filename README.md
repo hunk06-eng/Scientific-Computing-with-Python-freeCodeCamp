@@ -1,8 +1,6 @@
-# VigenereCipher
-A python script to encrypt/decrypt text using the Vigenère Cipher.
+# Scientific Computing with Python – freeCodeCamp Projects
 
-(IMPORTANT NOTES)
-1) The key used must not have any non alphabetic characters, such as digits or symbols.
-2) While the Vigenere cipher is a classical encryption method that played an important role in the history of cryptography. It is no longer considered secure for protecting sensitive or modern communications due to advances in computing power.
+This repository contains all the projects from the freeCodeCamp Scientific Computing with Python certification.
+Each project includes optimizations and improvements for clarity, efficiency, and readability.
 
-This tool is intended for educational purposes only and is not recommended for encrypting sensitive data.
+Built for educational purposes as part of my learning journey in scientific computing and Python programming.
