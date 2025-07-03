@@ -3,6 +3,7 @@
     It multiplies every 2nd digit from the right to left by 2, if it's bigger than 9, it subtracts 9 from it and adds all numbers to the sum.
     If the sum % 10 == 0 (dividable by 10) then the number is valid [with the check digit included in sum], else It's invalid.
     It serves as a quick way to check for typos and errors.
+    Happy learning :)
 """
 def luhn_number(num):
     if not num.isdigit() or len(num) < 2:
@@ -43,7 +44,7 @@ def main():
     return "The number is valid!" if luhn_number(number_translated) else "The number is invalid!"
 
 while True:
-    print(main())
     usr_choice = input("\nEnter [Q] to quit, leave empty to continue:")
     if usr_choice == 'Q':
         break
+    print(main())
