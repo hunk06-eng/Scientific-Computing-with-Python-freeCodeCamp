@@ -44,7 +44,8 @@ def main():
     return "The number is valid!" if luhn_number(number_translated) else "The number is invalid!"
 
 while True:
+    print(main())
+
     usr_choice = input("\nEnter [Q] to quit, leave empty to continue:")
     if usr_choice == 'Q':
         break
-    print(main())
