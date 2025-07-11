@@ -33,19 +33,20 @@ def test_cases():
 
     return f"{len(number_list) - passed_cases} cases failed to pass."
 
-def main():
-    print("You can launch built-in test-cases by inserting [T] at the next prompt.")
-    number = input("Enter number to verify using the Luhn Algorithm:")
-    if number == 'T':
-        return test_cases()
-    non_digits_trans = str.maketrans("", "", "-_ ")
-    number_translated = number.translate(non_digits_trans)[::-1]
+if __name__ == "__main__":
+    def main():
+        print("You can launch built-in test-cases by inserting [T] at the next prompt.")
+        number = input("Enter number to verify using the Luhn Algorithm:")
+        if number == 'T':
+            return test_cases()
+        non_digits_trans = str.maketrans("", "", "-_ ")
+        number_translated = number.translate(non_digits_trans)[::-1]
 
-    return "The number is valid!" if luhn_number(number_translated) else "The number is invalid!"
+        return "The number is valid!" if luhn_number(number_translated) else "The number is invalid!"
 
-while True:
-    print(main())
+    while True:
+        print(main())
 
-    usr_choice = input("\nEnter [Q] to quit, leave empty to continue:")
-    if usr_choice == 'Q':
-        break
+        usr_choice = input("\nEnter [Q] to quit, leave empty to continue:")
+        if usr_choice == 'Q':
+            break

@@ -67,40 +67,40 @@ def test_cases():
     else:
         print(f"Something went wrong, only {len(test_cases_text) - success} cases passed.")
 
+if __name__ == "__main__":
+    def main():
+        # while loop so the script runs as many times as needed.
+        while True:
+            print("\n")
+            text_in = input("Enter the text you want to encrypt/decrypt: ")
+            if text_in == "81": # if user wants to quit
+                print("Exiting the script.")
+                break
 
-def main():
-    # while loop so the script runs as many times as needed.
-    while True:
-        print("\n")
-        text_in = input("Enter the text you want to encrypt/decrypt: ")
-        if text_in == "81": # if user wants to quit
-            print("Exiting the script.")
-            break
-
-        key_in = input("Enter the key to use for encryption/decryption: ")
-        if not key_in.isalpha(): # 81 and 84 both are invalid keys anyway, so we can check them in here.
-            if key_in == "84": # if user wants to launch test cases
-                test_cases()
-                what_now = input("Enter Y to continue or N to stop: ")
-                if what_now == 'Y':
-                    continue
-                elif what_now == 'N':
+            key_in = input("Enter the key to use for encryption/decryption: ")
+            if not key_in.isalpha(): # 81 and 84 both are invalid keys anyway, so we can check them in here.
+                if key_in == "84": # if user wants to launch test cases
+                    test_cases()
+                    what_now = input("Enter Y to continue or N to stop: ")
+                    if what_now == 'Y':
+                        continue
+                    elif what_now == 'N':
+                        break
+                elif key_in == "81": # if user want to quit
+                    print("Exiting the script.")
                     break
-            elif key_in == "81": # if user want to quit
-                print("Exiting the script.")
-                break
-            print("Invalid key, key must not contain any symbols/digits/spaces.")
-            continue
+                print("Invalid key, key must not contain any symbols/digits/spaces.")
+                continue
 
-        mode_in = input("Enter 1 for encryption, -1 for decryption: ")
-        if mode_in not in ['1', '-1']:
-            if mode_in == "81": # same concept as before, if mode_in is invalid, it could be the user entering 81 or 84.
-                print("Exiting the script.")
-                break
-            print("Invalid mode baby girl, enter 1 for encryption, -1 for decryption.") # baby girl you didn't follow instructions
-            continue
+            mode_in = input("Enter 1 for encryption, -1 for decryption: ")
+            if mode_in not in ['1', '-1']:
+                if mode_in == "81": # same concept as before, if mode_in is invalid, it could be the user entering 81 or 84.
+                    print("Exiting the script.")
+                    break
+                print("Invalid mode baby girl, enter 1 for encryption, -1 for decryption.") # baby girl you didn't follow instructions
+                continue
 
-        print(vigenere(text_in, key_in, int(mode_in)))
-        print('\n')
+            print(vigenere(text_in, key_in, int(mode_in)))
+            print('\n')
 
-main() # launching the script
+    main() # launching the script
