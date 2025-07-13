@@ -12,7 +12,7 @@ For example: if we use the bisection method to find the root of 16:
 9) congrats, you found the root of 16!
 """
 
-def find_root(number, tolerance=0.0000001, max_iterations=2500):
+def find_root(number, tolerance=1e-7, max_iterations=2e4):
     # you could also pass tolerance as a complex number, (1e-7)
     if number == 1:
         return 1
@@ -28,7 +28,7 @@ def find_root(number, tolerance=0.0000001, max_iterations=2500):
     start_interval = 0
     end_interval = number if number > 1 else 1
 
-    for i in range(max_iterations):
+    for i in range(int(max_iterations)):
         mid_interval = (start_interval + end_interval) / 2
         mid_interval_squared = mid_interval ** 2 # square it to check if it is a possible solution
 
@@ -56,11 +56,7 @@ if __name__ == "__main__":
     print("Tolerance refers to the difference between the calculated root (squared), and the number inputted.")
     print("Enter [E] at number prompt to exit.\n")
     while True:
-        number_in = input("Enter the number to find the root of: ")
-        if number_in == 'E' or number_in == 'e':
-            print("Exiting script..")
-            break
-        tolerance_in = input("Enter [Q] for a quick calculation.\n[D] for a default calculation.\n[P] for a precise calculation.\n[L] for using highest computing power (recommended for highest precision)\nYour Choice: ").strip()
+        number_in = input("Enter the number to find the root of: ").strip()
 
         try:
             number_in = float(number_in)
@@ -68,18 +64,34 @@ if __name__ == "__main__":
             print("Please enter a valid number! Try again.")
             continue
 
+        if number_in == 'E' or number_in == 'e':
+            print("Exiting script..")
+            break
+        elif len(str(int(number_in))) >= 10:
+            print("\nIt seems that your number is too big, it's recommended to input [L] at next prompt.")
+
+        tolerance_in = input("---Choices---\n[Q] for a quick calculation.\n[D] for a default calculation.\n[P] for a precise calculation.\n[X] for an extensive calculation. (slow but precise, not recommended for 10 digits or more)\n[L] for a large number calculation (less precise, for 10 digits or more)\nYour Choice: ").strip()
+
+        # range() is a lazy function, meaning that it generates numbers on demand, so you can enter large max_iteration numbers without worrying about unused memory size.
         if tolerance_in == 'Q' or tolerance_in == 'q':
-            tolerance_in = 0.0001
-            max_iterations_in = 500
+            tolerance_in = 1e-3
+            max_iterations_in = 1e3
         elif tolerance_in == 'D' or tolerance_in == 'd':
-            tolerance_in = 0.0000001
-            max_iterations_in = 5000
+            tolerance_in = 1e-7
+            max_iterations_in = 2e4
         elif tolerance_in == 'P' or tolerance_in == 'p':
-            tolerance_in = 0.0000000001
-            max_iterations_in = 1000000
+            tolerance_in = 1e-9
+            max_iterations_in = 2e7
+        elif tolerance_in == 'X' or tolerance_in == 'x':
+            tolerance_in = 1e-12
+            max_iterations_in = 2e8
         elif tolerance_in == 'L' or tolerance_in == 'l':
-            tolerance_in = 0.00000000000001
-            max_iterations_in = 150000000
+            if len(str(int(number_in))) < 15:
+                tolerance_in = 1e-2
+                max_iterations_in = 1e11
+            else:
+                tolerance_in = 1e-1
+                max_iterations_in = 1e11
         else:
             print("Invalid choice of speed! Try again.")
             continue
