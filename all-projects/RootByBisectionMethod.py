@@ -21,35 +21,42 @@ def find_root(number, tolerance=1e-7, max_iterations=2e4):
     elif number < 0:
         raise ValueError("A squared number cannot be negative!")
 
-    root = None
     # if the number is bigger than 1, such as 16, then the root cannot be bigger than 16
     # however if the number is less than 1, such as (1/4), then the root can be bigger than the number itself, in this case sqrt(1/4)=(1/2)
     # to simplify this, if a number is less than 1, its square root cannot be bigger than 1
     start_interval = 0
     end_interval = number if number > 1 else 1
+    # need to define the next two variables here so we can use them later outside the for loop scope
+    mid_interval = None # mid_interval represents potential roots
+    mid_interval_squared = None
 
     for i in range(int(max_iterations)):
         mid_interval = (start_interval + end_interval) / 2
-        mid_interval_squared = mid_interval ** 2 # square it to check if it is a possible solution
+        mid_interval_squared = mid_interval ** 2.0 # square it to check if it is a possible solution
 
         # if difference between our solution, and the number is within the specified tolerance, return our solution
         if abs(mid_interval_squared - number) <= tolerance:
-            root = mid_interval
-            return root
+            return mid_interval
         # if it is not, we will have to split the interval more
-        # this checks if our solution was bigger than the number itself, if it was, we can discard the mid_interval and whatever is bigger than it.
+        # this checks if our solution was bigger than the number itself, if it was, we can discard whatever is bigger than mid_interval.
         elif mid_interval_squared > number:
+            # our interval now ends at the middle, deleting whatever is bigger than mid_interval
             # when the next loop runs, a new mid_interval will be calculated.
             end_interval = mid_interval
         elif mid_interval_squared < number:
             # cut whatever is before the mid_interval, since mid_interval squared is less than our number
             # thus, whatever interval we square before mid_interval will also result in a value less than our required number
+            # our new interval now starts at the middle
             start_interval = mid_interval
-    if root is None:
-        print(f"Couldn't find a root within the specified tolerance")
+    # if the code reaches this line, it means the for loop failed to calculate a root within the specified tolerance
+    # we must use the final mid_interval value (possible root value) and return it to user
+    # but the difference between mid_interval (squared) and the original number must be less than 1% in order to consider it an approx. value
+    if abs(mid_interval_squared - number) <= (number*0.01):
+        print(f"Couldn't find a root value within specified tolerance, approximate root is: {mid_interval}")
+        return mid_interval
     else:
-        print(f"Couldn't find a root within the specified tolerance, the approximate root is {root}")
-    return root
+        print(f"Couldn't find a root within the specified tolerance")
+    return mid_interval # return None
 
 if __name__ == "__main__":
     print("***Root finder using Bisection Method***")
@@ -57,41 +64,43 @@ if __name__ == "__main__":
     print("Enter [E] at number prompt to exit.\n")
     while True:
         number_in = input("Enter the number to find the root of: ").strip()
-
-        try:
-            number_in = float(number_in)
-        except ValueError:
-            print("Please enter a valid number! Try again.")
-            continue
-
         if number_in == 'E' or number_in == 'e':
             print("Exiting script..")
             break
-        elif len(str(int(number_in))) >= 10:
-            print("\nIt seems that your number is too big, it's recommended to input [L] at next prompt.")
+        try:
+            number_in = float(number_in)
+        except ValueError:
+                print("Please enter a valid number! Try again.")
+                continue
 
-        tolerance_in = input("---Choices---\n[Q] for a quick calculation.\n[D] for a default calculation.\n[P] for a precise calculation.\n[X] for an extensive calculation. (slow but precise, not recommended for 10 digits or more)\n[L] for a large number calculation (less precise, for 10 digits or more)\nYour Choice: ").strip()
+        tolerance_in = input("---Choices---\n[Q] for a quick calculation.\n[D] for a default calculation.\n[P] for a precise calculation.\n[X] for an extensive calculation.\n[L] for a large number calculation (must be used for 7 significant digits or more, ignores precision)\nYour Choice: ").strip()
 
         # range() is a lazy function, meaning that it generates numbers on demand, so you can enter large max_iteration numbers without worrying about unused memory size.
         if tolerance_in == 'Q' or tolerance_in == 'q':
-            tolerance_in = 1e-3
-            max_iterations_in = 1e3
+            tolerance_in = 1e-2
+            max_iterations_in = 1e3 #1k
         elif tolerance_in == 'D' or tolerance_in == 'd':
-            tolerance_in = 1e-7
-            max_iterations_in = 2e4
+            tolerance_in = 1e-6
+            max_iterations_in = 5e4 #50k
         elif tolerance_in == 'P' or tolerance_in == 'p':
-            tolerance_in = 1e-9
-            max_iterations_in = 2e7
+            if len(str(number_in)) > 8:
+                print("Warning! Due to the nature of float(), python cannot hold more than 15 significant digits without rounding the rest! Don't expect full precision with the current number.")
+            tolerance_in = 1e-8
+            max_iterations_in = 1e8 #100m
         elif tolerance_in == 'X' or tolerance_in == 'x':
-            tolerance_in = 1e-12
-            max_iterations_in = 2e8
+            # a cool mode, with a tolerance very small, 1*10^(-10) and with a maximum of 500 million iterations.
+            # very precise for numbers with a smaller amount of digits
+            if len(str(number_in)) > 8:
+                print("Warning! Due to the nature of float(), python cannot hold more than 15 significant digits without rounding the rest! Don't expect full precision with the current number.")
+            tolerance_in = 1e-10
+            max_iterations_in = 5e8 #500m
         elif tolerance_in == 'L' or tolerance_in == 'l':
             if len(str(int(number_in))) < 15:
-                tolerance_in = 1e-2
-                max_iterations_in = 1e11
+                tolerance_in = 1e-3
+                max_iterations_in = 1e9 #1b
             else:
-                tolerance_in = 1e-1
-                max_iterations_in = 1e11
+                tolerance_in = 1e-2
+                max_iterations_in = 1e9 #1b
         else:
             print("Invalid choice of speed! Try again.")
             continue
