@@ -116,5 +116,49 @@ def arithmetic_arranger(problems, show_answers=False):
 
     return output
 
-# Will be adding a better UI and some test-cases later ;P
-print(f"{arithmetic_arranger(["33 + 1203", "160 - 12", "63 - 12", "1324 - 14", "5173 - 1740"], True)}")
+# Will be adding a better UI, improved input handling and some test-cases later ;P
+# Will be adding support for negative integers later
+if __name__ == "__main__":
+    print("Enter Q at 1st/2nd number prompt to quit.")
+    print("Warning! Doesn't support negative numbers yet. But can calculate negative answers and output them in arithmetic form.")
+    def main():
+        problems = []
+        for i in range(5):
+            print(f"\nArithmetic Problem Number {i+1}.")
+            num_1 = input("Enter 1st number (Int Only, 4 digits max): ").strip()
+            try:
+                num_1 = int(num_1)
+            except ValueError:
+                if num_1 == 'Q' or num_1 == 'q':
+                    return False
+                else:
+                    print("Please enter a valid number, digits only, Integer only, no fractions.")
+                    return True
+            operator = input("Enter operator (+ or - Only): ").strip()
+            if operator not in ["+", "-"]:
+                print("Invalid operator added! You can only input (addition or subtraction)")
+                return True
+            num_2 = input("Enter 2nd number (Int Only, 4 digits max): ").strip()
+            try:
+                num_2 = int(num_2)
+            except ValueError:
+                if num_2 == 'Q' or num_2 == 'q':
+                    return False
+                else:
+                    print("Please enter a valid number, digits only, Integer only, no fractions.")
+                    return True
+            problems.append(f"{num_1} {operator} {num_2}")
+            if i != 4:
+                add_more = bool(int(input("Add more arithmetic problems?\n[1] for yes, [0] for no: ").strip()))
+                if not add_more:
+                    break
+        show_answers = bool(int(input("\nWould you like to show answers in arithmetic tool?\n[1] for yes, [0] for no: ").strip()))
+        print(arithmetic_arranger(problems, show_answers))
+
+        return True
+
+    choice = True
+    while choice:
+        if not main():
+            break
+        choice = bool(int(input("\nContinue?\n[1] for yes, [0] for no: ").strip()))
