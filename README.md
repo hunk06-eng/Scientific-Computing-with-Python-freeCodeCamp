@@ -8,7 +8,13 @@ Case Converter (CaseConverter.py): Used for converting between PascalCase, camel
 
 Vigenere Cipher (VigenereEncryption.py): Some classic cryptography cuz why not. It shifts letters based on a key word, while preserving spaces and punctuation. Used some basic ASCII math to handle both uppercase and lowercase letters properly. Added test cases with some sample text to make sure everything works. Read warnings please, don't use this for sensitive info!
 
-Expense Tracker (ExpensesTracker.py): Unlike the freeCodeCamp version, I expanded this script with way more features. Now it can save data to local files, detects and removes duplicate categories, and has better error handling. I used dictionaries to organize everything by category and added both append and overwrite modes in the log file for saving data. Pretty useful for tracking personal expenses. But a notepad works great too lol.
+Expense Tracker (ExpensesTracker.py): Unlike the freeCodeCamp version, I expanded this script with way more features. Now it can save data to local files, detects and removes duplicate categories, and has better error handling. I used dictionaries to organize everything by category and added both append and overwrite modes in the log file for saving data. Pretty useful for tracking personal expenses. But a notepad works great too.
+
+Password Generator (PasswordGeneratorRegex.py): This is a customizable and simple password generator. It uses Python's secrets module for cryptographic randomness and regular expressions for validation. The script generates passwords with a mix of letters, digits, and symbols. Users can specify the desired length of the password and the proportions of each character type. It also shuflles characters in the generated password and breaks predictable patterns. User-friendly CLI.
+
+Note: This script is for educational purposes and should not be used for critical security needs.
+
+Arithmetic Formatter (ArithmeticFormatter.py): it formats basic arithmetic problems such as addition and subtraction for display. This script adheres to the requirements specified by the freeCodeCamp certification project: supports up to 5 arithmetic problems, optionally shows answer, operands cannot exceed four digits, only operators allowed are ( + or -).
 
 I'll add more projects soon.
 
