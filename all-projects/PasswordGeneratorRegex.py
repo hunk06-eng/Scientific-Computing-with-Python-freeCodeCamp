@@ -43,7 +43,7 @@ def generate_password(password_len = 16, alphabet_len = 10, digits_len = 4, symb
             symbols_len_c += 1
 
     password_str_version = "".join(password)
-    if bool(check.match(password_str_version)): # I know this is not needed, but... educational
+    if bool(check.match(password_str_version)): # an extra sanity check before shuffle
         # calling the mixer function
         # it's very important, it shuffles each character in a random place
         # if we don't use it, we will have all letters, followed by all digits, followed by all symbols in order
@@ -84,7 +84,7 @@ if __name__ == "__main__":
             sym_len = int(input("Enter number of symbols to generate in password: ").strip())
             remaining_chars -= sym_len
             print(f"{remaining_chars} left!")
-        except ValueError or TypeError:
+        except ValueError:
             print("Only accepts integer numbers for input... Please try again and enter digits only.")
             continue
 
