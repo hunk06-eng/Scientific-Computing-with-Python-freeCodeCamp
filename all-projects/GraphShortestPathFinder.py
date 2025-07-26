@@ -1,3 +1,6 @@
+"""This script is meant to find all possible paths in a graph, not just the shortest path. For finding the shortest path specifically, use Dijkstra algorithm instead. While there are some similarities in the code below to Dijkstra algorithm it's still quite different. Dijkstra algorithm will be implemented later in a following script."""
+
+
 my_graph = {
     'A101': [('B102', 5), ('C103', 3), ('E105', 11)],
     'B102': [('A101', 5), ('C103', 1), ('F106', 2)],
@@ -55,4 +58,4 @@ def find_paths(graph, start_node, end_node=None):
     return lowest_cost_path(paths, start_node, end_node)
 
 # uncomment the next line for testing.
-# print(find_paths(my_graph, 'A101', 'G107'))
+# print(find_paths(my_graph, 'A101'))
