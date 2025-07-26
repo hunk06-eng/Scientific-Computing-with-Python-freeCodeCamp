@@ -26,7 +26,7 @@ def connect_path(path, start_node, last_node):
 
 def lowest_cost_path(path, start_Node, end_Node):
     if end_Node is None:
-        print("An end_node has not specified, returning all paths found instead along their costs.")
+        print("An end_node has not been specified, returning all paths found.")
         return path
 
     lowest_path_found = None
