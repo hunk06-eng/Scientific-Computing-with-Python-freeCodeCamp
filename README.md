@@ -1,29 +1,18 @@
-This repository contains a collection of Python projects that I built to practice different programming concepts and algorithms while taking fCC (Python for Scientific Computing certificate). Each project tackles a real problem and includes plenty of comments to explain whats happening.
+# Scientific Computing with Python: My personal implementations
 
-Luhn Algorithm (LuhnAlgorithm.py): An algorithm used to validate credit card numbers, SSN, and other ID numbers. The algorithm checks every second digit from right to left, doubles it, and if its bigger than 9, subtracts 9 from it. Then it sums everything. if the total is dividable by 10, the number is valid. I included multiple test cases to make sure it handles weird inputs like empty strings and random text.
+## About This Repository
 
-Root Finding by Bisection Method (RootByBisectionMethod.py): This script finds square roots using a method that is basically like binary search. You start with an interval and keep cutting it in half until you get close enough to an answer. Added lots of comments explaining the math behind it. And created a nice UI if you don't want to specify tolerance or max_iterations.
+This repository contains my personal solutions and implementations for the projects and lessons in the freeCodeCamp course: ["Scientific Computing with Python"](https://www.freecodecamp.org/learn/scientific-computing-with-python/).
 
-Case Converter (CaseConverter.py): Used for converting between PascalCase, camelCase, and snake_case. The tricky part was handling edge cases like multiple underscores behind each other, or digits in the middle of an identifier. I used isalnum() to filter out weird characters and added a bunch of error checking for invalid inputs.
+### My Learning Approach: Building from scratch
 
-Vigenere Cipher (VigenereEncryption.py): classic cryptography. It shifts letters based on a key word, while preserving spaces and punctuation. Used some basic ASCII math to handle both uppercase and lowercase letters properly. Added test cases with some sample text to make sure everything works. Read warnings please, don't use this for sensitive info!
+My primary goal with this course was not just to complete the assignments, but to truly challenge myself and maximize my learning. To achieve this, every piece of code and every algorithm you find in this repository was designed and implemented from scratch by me.
 
-Expense Tracker (ExpensesTracker.py): Unlike the freeCodeCamp version, I expanded this script with way more features. Now it can save data to local files, detects and removes duplicate categories, and has better error handling. I used dictionaries to organize everything by category and added both append and overwrite modes in the log file for saving data. Pretty useful for tracking personal expenses.
+Instead of relying on standard textbook solutions or the most common algorithms, I chose to build my own. This approach forced me to think critically about the problems and develop a deeper, more fundamental understanding of the underlying concepts.
 
-Password Generator (PasswordGeneratorRegex.py): This is a customizable and simple password generator. It uses Python's secrets module for cryptographic randomness and regular expressions for validation. The script generates passwords with a mix of letters, digits, and symbols. Users can specify the desired length of the password and the proportions of each character type. It also shuffles characters in the generated password and breaks predictable patterns. User-friendly CLI.
+**What this meant for my code:**
 
-Note: This script is for educational purposes and should not be used for critical security needs.
+*   **Unique Solutions:** The algorithms here are my own creation and represent my personal problem solving journey.
+*   **Variable Performance:** As a result of my "from scratch" method, you may find that some of my solutions are faster, while others might be slower or less optimized than conventional algorithms. This was a trade off I made purposely for the sake of learning.
 
-Arithmetic Formatter (ArithmeticFormatter.py): it formats basic arithmetic problems such as addition and subtraction for display. This script adheres to the requirements specified by the freeCodeCamp certification project: supports up to 5 arithmetic problems, optionally shows answer, operands cannot exceed four digits, only operators allowed are ( + or -).
-
-I'll add more projects soon.
-
-What I'm Proud Of
-1) Good error handling
-2) Good algorithms
-3) Clean code structure
-4) User friendly design
-5) Built-in testing
-6) Detailed comments for fellow learners
-
-Thank you for reading! Hope you like my work.
+Thank you for reading, and feel free to explore my work.
