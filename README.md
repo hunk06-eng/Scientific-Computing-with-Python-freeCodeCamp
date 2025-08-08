@@ -6,7 +6,7 @@ This repository contains my personal solutions and implementations for the proje
 
 ### My Learning Approach: Building from scratch
 
-My primary goal with this course was not just to complete the assignments, but to truly challenge myself and maximize my learning. To achieve this, every piece of code and every algorithm you find in this repository was designed and implemented from scratch by me.
+My primary goal with this course was not just to complete the assignments, but to truly challenge myself and maximize my learning. To achieve this, every piece of code and every algorithm you find in this repository was designed and implemented from scratch by me unless indicated otherwise in my script comments.
 
 Instead of relying on standard textbook solutions or the most common algorithms, I chose to build my own. This approach forced me to think critically about the problems and develop a deeper, more fundamental understanding of the underlying concepts.
 
