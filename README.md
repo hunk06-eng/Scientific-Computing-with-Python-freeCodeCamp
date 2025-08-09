@@ -16,3 +16,8 @@ Instead of relying on standard textbook solutions or the most common algorithms,
 *   **Variable Performance:** As a result of my "from scratch" method, you may find that some of my solutions are faster, while others might be slower or less optimized than conventional algorithms. This was a trade off I made purposely for the sake of learning.
 
 Thank you for reading, and feel free to explore my work.
+
+My best scripts in this repository, so far:
+1) Sudoku Solver
+2) Tower Of Hanoi
+3) Time Calculator
