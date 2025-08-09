@@ -90,10 +90,12 @@ class Sudoko:
             raise IndexError("Sudoku must have 9 lines (rows). (9x9)")
 
         # ensure there is 9 columns in each row
+        for line in self.board:
+            if len(line) != 9:
+                raise IndexError("Sudoku must have 9 digits in each line (row). (9x9)")
+
         # check if number is valid in its row, col, box
         for row in self.board:
-            if len(row) != 9:
-                raise IndexError("Sudoku must have 9 digits in each line (row). (9x9)")
             for item in row:
                 if item != 0:
                     original_entry = self.board[self.row][self.col]
