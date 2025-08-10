@@ -117,3 +117,18 @@ def create_spend_chart(categories):
 
 
     return "".join(output_str)
+
+
+food = Category("Food")
+clothing = Category("Clothing")
+
+food.deposit(1000, "deposit")
+food.withdraw(34.25, "date night")
+food.withdraw(50.5, "hanging out")
+food.deposit(302.5, "monthly salary")
+food.transfer(320, clothing)
+clothing.withdraw(50.5, "preparing for party")
+clothing.withdraw(30.25, "new running shoes")
+
+print(food)
+print(clothing)
