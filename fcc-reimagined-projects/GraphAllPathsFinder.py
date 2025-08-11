@@ -1,11 +1,13 @@
-"""This script is meant to find all possible paths in a graph, not just the shortest path. For finding the shortest path specifically, use Dijkstra algorithm instead. While there are some similarities in the code below to Dijkstra algorithm it's still quite different. Dijkstra algorithm will be implemented later in a following script."""
-
+"""
+This script is meant to find all possible paths in a graph, not just the shortest path.
+For finding the shortest path specifically, use Dijkstra algorithm instead.
+"""
 
 my_graph = {
     'A101': [('B102', 5), ('C103', 3), ('E105', 11)],
     'B102': [('A101', 5), ('C103', 1), ('F106', 2)],
     'C103': [('A101', 3), ('B102', 1), ('D104', 1), ('E105', 5)],
-    'D104': [('C103',1 ), ('E105', 9), ('F106', 3), ('G107', 1)],
+    'D104': [('C103', 1), ('E105', 9), ('F106', 3), ('G107', 1)],
     'E105': [('A101', 11), ('C103', 5), ('D104', 9), ('G107', 2)],
     'F106': [('B102', 2), ('D104', 3), ('G107', 8)],
     'G107': [('E105', 2), ('D104', 1), ('F106', 8)]

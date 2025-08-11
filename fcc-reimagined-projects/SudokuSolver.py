@@ -34,7 +34,7 @@ not lead to dead ends anymore.
 in short: not same path == not same dead ends
 """
 
-class Sudoko:
+class Sudoku:
     def __init__(self, board):
         self.board = [row.copy() for row in board] # do not mutate board directly. create a shallow copy.
         # if solve() is called self.board will be altered, self.board_original will remain untouched.
@@ -255,6 +255,6 @@ sudoku_puzzle = [
     [0, 0, 3, 0, 4, 0, 7, 0, 0],
     [0, 0, 0, 0, 0, 1, 0, 0, 0]]
 
-test_case = Sudoko(sudoku_puzzle)
+test_case = Sudoku(sudoku_puzzle)
 test_case.solve()
 print(test_case)
