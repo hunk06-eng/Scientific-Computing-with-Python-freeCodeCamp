@@ -18,6 +18,17 @@ This repository contains reimagined implementations of freeCodeCamp's Scientific
   - Dynamic column width calculation
   - Strict freeCodeCamp test case compliance
 
+### ⏰ Time Calculator
+**Unique Approach**: Manual time arithmetic with custom AM/PM cycle handling
+- **Challenge**: Add duration to start time and return formatted result with optional day tracking
+- **Innovation**: Step-by-step time calculation mimicking manual clock arithmetic
+- **Key Features**:
+  - Custom hour overflow logic handling 12-hour format transitions
+  - Manual AM/PM switching with day boundary detection  
+  - Minute-to-hour conversion with precise carry operations
+  - Dual dictionary mapping for bidirectional day-of-week lookups
+  - Edge case handling for 12 o'clock transitions and formatting consistency
+
 ### 💰 Expenses Tracker
 **Unique Approach**: Enhanced with persistent storage and duplicate management
 - **Challenge**: Track expenses by category with totaling capabilities  
