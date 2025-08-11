@@ -18,7 +18,7 @@ This repository contains reimagined implementations of freeCodeCamp's Scientific
   - Dynamic column width calculation
   - Strict freeCodeCamp test case compliance
 
-### 💰 Budget Manager (Expense Tracker)
+### 💰 Expenses Tracker
 **Unique Approach**: Enhanced with persistent storage and duplicate management
 - **Challenge**: Track expenses by category with totaling capabilities  
 - **Innovation**: Local file storage with smart duplicate detection
