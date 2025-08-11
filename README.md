@@ -83,7 +83,7 @@ Each project is self-contained and can be run independently:
 ```bash
 # Run any project directly
 python ArithmeticFormatter.py
-python ExpenseTracker.py
+python ExpensesTracker.py
 python SudokuSolver.py
 python TowerOfHanoi.py
 ```
