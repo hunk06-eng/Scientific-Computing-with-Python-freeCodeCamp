@@ -1,5 +1,5 @@
 # Scientific Computing with Python - freeCodeCamp
-*projects rewritten in unique approaches*
+*projects rewritten in unique approaches whenever possible*
 
 ## 🎯 Repository Philosophy
 
