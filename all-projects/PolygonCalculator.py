@@ -19,7 +19,7 @@ class Rectangle:
         return 2*(self.height+self.width)
 
     def get_diagonal(self):
-        return (self.height**2+self.width**2)**-2
+        return (self.height**2+self.width**2)**0.5
 
     def get_picture(self):
         if self.width > 50 or self.height > 50:
