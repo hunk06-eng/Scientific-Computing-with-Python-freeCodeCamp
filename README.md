@@ -7,57 +7,16 @@
 
 This repository contains reimagined implementations of freeCodeCamp's Scientific Computing with Python certification projects. Rather than following conventional approaches, each project explores alternative algorithms, data structures, and programming paradigms to deepen understanding and showcase creative problem-solving.
 
-## 📚 Projects Overview
+## 📚 Directories Overview
 
-### 🧮 Arithmetic Formatter
-**Unique Approach**: Character-by-character parsing with dictionary-based organization
-- **Challenge**: Format arithmetic problems vertically like manual calculations
-- **Innovation**: Precise spacing calculations and comprehensive error handling
-- **Key Features**: 
-  - Custom parsing logic without regex
-  - Dynamic column width calculation
-  - Strict freeCodeCamp test case compliance
+### `certificate-projects/`
+- Includes the 5 necessary projects that must pass fCC test-cases and requirements to obtain the Scientific Computing with Python certificate.
 
-### ⏰ Time Calculator
-**Unique Approach**: Manual time arithmetic with custom AM/PM cycle handling
-- **Challenge**: Add duration to start time and return formatted result with optional day tracking
-- **Innovation**: Step-by-step time calculation mimicking manual clock arithmetic
-- **Key Features**:
-  - Custom hour overflow logic handling 12-hour format transitions
-  - Manual AM/PM switching with day boundary detection  
-  - Minute-to-hour conversion with precise carry operations
-  - Dual dictionary mapping for bidirectional day-of-week lookups
-  - Edge case handling for 12 o'clock transitions and formatting consistency
+### `fcc-reimagined-projects/`
+- Includes projects in the Scientific Computing curriculum re-implemented from scratch by me, creating unique algorithms and design choices, chosen not for convenience but to maximize learning to truly challenge myself.
 
-### 💰 Expenses Tracker
-**Unique Approach**: Enhanced with persistent storage and duplicate management
-- **Challenge**: Track expenses by category with totaling capabilities  
-- **Innovation**: Local file storage with smart duplicate detection
-- **Key Features**:
-  - Persistent storage in `expenses_log.txt`
-  - Automatic duplicate category detection and cleanup
-  - Append/overwrite modes for flexible data management
-  - Robust error handling and input validation
-
-### 🧩 Sudoku Solver  
-**Unique Approach**: Iterative algorithm with manual backtracking (no recursion)
-- **Challenge**: Solve 9x9 Sudoku puzzles programmatically
-- **Innovation**: Custom state management and explicit backtracking logic
-- **Key Features**:
-  - Manual index navigation system
-  - Comprehensive board validation
-  - Detailed attempt tracking to prevent infinite loops
-  - Educational Q&A documentation explaining design decisions
-
-### 🗼 Tower of Hanoi Solver
-**Unique Approach**: Mathematical pattern implementation using optimal move theory
-- **Challenge**: Solve Tower of Hanoi with minimum moves
-- **Innovation**: Pattern-based solution using mathematical insights
-- **Key Features**:
-  - Implements the 2ⁿ - 1 optimal solution
-  - Different cycles for odd/even disk counts
-  - No recursion - pure iterative approach
-  - Interactive CLI with robust input validation
+### `practice-projects/`
+- Includes a few practice projects in the Scientific Computing curriculum, and while they are different (e.g. test-cases, CLI) the core ideas are the exact same, so I can't consider them my own.
 
 ## 🚀 Technical Highlights
 
