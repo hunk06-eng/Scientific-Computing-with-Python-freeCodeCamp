@@ -14,7 +14,7 @@ This repository contains reimagined implementations of freeCodeCamp's Scientific
 - Includes projects in the Scientific Computing curriculum re-implemented from scratch by me, creating unique algorithms and design choices, chosen not for convenience but to maximize learning to truly challenge myself.
 
 ### `practice-projects/`
-- Includes a few practice projects in the Scientific Computing curriculum, and while they are different (e.g. test-cases, CLI) the core ideas are the exact same, so I can't consider them my own.
+- Includes a few practice projects in the Scientific Computing curriculum, and while they are different (e.g. test-cases, CLI, or file I/O in Expenses Tracker) the core algorithm is the same, so I can't consider them my own.
 
 ## 🚀 Technical Highlights
 
