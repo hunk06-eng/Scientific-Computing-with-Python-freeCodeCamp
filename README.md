@@ -3,8 +3,6 @@
 
 ## 🎯 Repository Philosophy
 
-> *"I understand that recursion would be much simpler, and cleaner. However, I chose to create my own solution instead to force myself to think. Because the best way to learn is through forcing uniqueness."*
-
 This repository contains reimagined implementations of freeCodeCamp's Scientific Computing with Python certification projects. Rather than following conventional approaches, each project explores alternative algorithms, data structures, and programming paradigms to deepen understanding and showcase creative problem-solving.
 
 ## 📚 Directories Overview
