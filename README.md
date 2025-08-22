@@ -46,15 +46,7 @@ This repository contains reimagined implementations of freeCodeCamp's Scientific
 
 ## 🛠️ Usage
 
-Each project is self-contained and can be run independently:
-
-```bash
-# Run any project directly
-python ArithmeticFormatter.py
-python ExpensesTracker.py
-python SudokuSolver.py
-python TowerOfHanoi.py
-```
+Each project is self-contained and can be run independently.
 
 ## 📋 Requirements
 
