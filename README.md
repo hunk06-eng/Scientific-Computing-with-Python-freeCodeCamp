@@ -3,8 +3,6 @@
 
 ## 🎯 Repository Philosophy
 
-> *"I understand that recursion would be much simpler, and cleaner. However, I chose to create my own solution instead to force myself to think. Because the best way to learn is through forcing uniqueness."*
-
 This repository contains reimagined implementations of freeCodeCamp's Scientific Computing with Python certification projects. Rather than following conventional approaches, each project explores alternative algorithms, data structures, and programming paradigms to deepen understanding and showcase creative problem-solving.
 
 ## 📚 Directories Overview
@@ -16,7 +14,7 @@ This repository contains reimagined implementations of freeCodeCamp's Scientific
 - Includes projects in the Scientific Computing curriculum re-implemented from scratch by me, creating unique algorithms and design choices, chosen not for convenience but to maximize learning to truly challenge myself.
 
 ### `practice-projects/`
-- Includes a few practice projects in the Scientific Computing curriculum, and while they are different (e.g. test-cases, CLI) the core ideas are the exact same, so I can't consider them my own.
+- Includes a few practice projects in the Scientific Computing curriculum, and while they are different (e.g. test-cases, CLI, or file I/O in Expenses Tracker) the core algorithm is the same, so I can't consider them my own.
 
 ## 🚀 Technical Highlights
 
@@ -48,15 +46,7 @@ This repository contains reimagined implementations of freeCodeCamp's Scientific
 
 ## 🛠️ Usage
 
-Each project is self-contained and can be run independently:
-
-```bash
-# Run any project directly
-python ArithmeticFormatter.py
-python ExpensesTracker.py
-python SudokuSolver.py
-python TowerOfHanoi.py
-```
+Each project is self-contained and can be run independently.
 
 ## 📋 Requirements
 
