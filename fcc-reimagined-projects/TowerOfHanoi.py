@@ -53,9 +53,12 @@ def solve_tower_puzzle(num_of_disks, tower, disk_loc):
         else: # if it's an even move, we must make a legal move, but avoid moving the smallest disk. There's only one legal move everytime.
             find_legal_move(tower, 2, disk_loc, num_of_disks)
 
+        print(f"Performing move number: {move}, current result: {tower}")
+
     return tower
 
 if __name__ == "__main__":
+    print("Welcome to the TowerOfHanoi solver.\nRemember that total number of disks is (2^n)-1 moves, where n is the amount of disks, so its recommended to test smaller amounts first.")
     while True:
         choice = input("Enter [Q] to quit.\nEnter amount of disks in source tower to begin the script: ").strip()
         try:
