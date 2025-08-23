@@ -132,3 +132,59 @@ def arithmetic_arranger(problems, show_answers=False):
 
 # You can uncomment the next line to test this script.
 #print(arithmetic_arranger(["3 - 5", "74 - 22", "30 - 90", "100 + 5054", "7123 - 9253"], True))
+
+if __name__ == "__main__":
+    print("You might find the limitations in this script unusual, but this is a certificate project with strict requirements.")
+
+    while True:
+        amount = input("Enter amount of arithmetic problems you would like to format (max is 5): ").strip()
+        if amount.isnumeric():
+            amount = int(amount)
+            if amount > 5:
+                print("Can accept a maximum of 5 problems, according to freeCodeCamp requirements. Try again...")
+                continue
+        else:
+            print("Invalid amount, digits only...")
+        try:
+            usr_problems = []
+            for problem in range(1, amount+1):
+                print("\n")
+
+                operand_one = input(f"Enter 1st operand in problem number {problem}: ").strip()
+                if not operand_one.isnumeric():
+                    print("Invalid operand! Can only be a number.")
+                    raise ValueError
+                if int(operand_one) < 0:
+                    print("Error! Cannot be a negative number. Please try again.")
+                    continue
+
+                usr_operator = input("Enter operator + or - (only supported operator types per freeCodeCamp requirements): ").strip()
+                if usr_operator not in ["+", "-"]:
+                    print("Invalid operator, can only support (+ or -)")
+                    raise ValueError
+
+                operand_two = input(f"Enter 2nd operand in problem number {problem}: ").strip()
+                if not operand_two.isnumeric():
+                    print("Invalid operand! Can only be a number.")
+                    raise ValueError
+                if int(operand_two) < 0:
+                    print("Error! Cannot be a negative number. Please try again.")
+                    continue
+
+                usr_problems.append(f"{operand_one} {usr_operator} {operand_two}")
+
+        except ValueError:
+            print("Relaunching...")
+            continue
+
+        usr_show_answers = input("Would you like to show answers? [Y] for yes [N] for no: ").strip().upper()
+        if usr_show_answers not in ["Y", "N"]:
+            print("Invalid choice, Enter Y or N only.")
+            continue
+
+        print(arithmetic_arranger(usr_problems, True if usr_show_answers == "Y" else False))
+
+        quit_or_stay = input("Enter [Q] to quit the script, [C] to continue: ").strip().upper()
+        if quit_or_stay == 'Q':
+            print("Exiting the script...")
+            break
