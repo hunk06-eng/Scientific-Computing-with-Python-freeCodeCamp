@@ -142,13 +142,11 @@ if __name__ == "__main__":
         print("(8) Exit script")
 
         usr_choice = input("Your choice: ").strip()
-        if usr_choice in ['1', '2', '3', '4', '5', '6', '7', '8']:
-            usr_choice = int(usr_choice)
-        else:
+        if usr_choice not in ['1', '2', '3', '4', '5', '6', '7', '8']:
             print("Invalid choice, must only input a single digit from 1 to 8")
             continue
 
-        if usr_choice == 1 or usr_choice == 2:
+        if usr_choice == '1' or usr_choice == '2':
             show_categories(usr_categories)
             req_category = input("Choose your category (by its digit, not name): ").strip()
             if req_category.isnumeric():
@@ -161,7 +159,7 @@ if __name__ == "__main__":
                     print("Try again, no spaces, currency signs, commas")
                     continue
                 req_description = input("Enter a description to remember the reason for this deposit/withdraw: ")
-                if usr_choice == 1:
+                if usr_choice == '1':
                     req_category.deposit(req_amount, req_description)
                     print(f"Deposit to {req_category.category} successful.")
                 else:
@@ -175,7 +173,7 @@ if __name__ == "__main__":
                 print("Try again.")
                 continue
 
-        elif usr_choice == 3:
+        elif usr_choice == '3':
             show_categories(usr_categories)
             withdraw_from_category = input("Choose your category to transfer from (by its digit, not name): ").strip()
             deposit_to_category = input("Choose your category to transfer to (by its digit, not name): ").strip()
@@ -201,7 +199,7 @@ if __name__ == "__main__":
                 print("Try again.")
                 continue
 
-        elif usr_choice == 4:
+        elif usr_choice == '4':
             show_categories(usr_categories)
             req_category = input("Choose your category (by its digit, not name): ").strip()
             if req_category.isnumeric():
@@ -213,20 +211,20 @@ if __name__ == "__main__":
                 print("Try again.")
                 continue
 
-        elif usr_choice == 5:
+        elif usr_choice == '5':
             try:
                 print(create_spend_chart(usr_categories))
             except ZeroDivisionError:
                 print("Cant generate a spending chart because nothing was spent (or withdrawn).")
 
-        elif usr_choice == 6:
+        elif usr_choice == '6':
             usr_categories = create_category_list()
 
-        elif usr_choice == 7:
+        elif usr_choice == '7':
             for category_to_output in usr_categories:
                 print(category_to_output)
 
-        elif usr_choice == 8:
+        elif usr_choice == '8':
             print("Exiting script...")
             break
 
