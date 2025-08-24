@@ -114,29 +114,120 @@ def create_spend_chart(categories):
             else:
                 output_str.append("   ")
 
-
-
     return "".join(output_str)
 
-# some tests
-food = Category("Food")
-clothing = Category("Clothing")
-entertainment = Category("Entertainment")
+if __name__ == "__main__":
+    def create_category_list():
+        categories_name = input("Categories must be seperated by a single comma, in this form: food,car,gym,clothing\nYour categories: ").strip().title().split(",")
+        instance_holder = []
 
-food.deposit(1000, "deposit")
-food.withdraw(34.25, "date night")
-food.withdraw(50.5, "hanging out")
-food.deposit(302.5, "monthly salary")
-food.transfer(320, clothing)
-clothing.withdraw(50.5, "preparing for party")
-clothing.withdraw(30.25, "new running shoes")
-clothing.withdraw(67.5, "new perfume")
-clothing.transfer(100, entertainment)
-entertainment.withdraw(20, "movie ticket")
-entertainment.withdraw(40, "tourism")
-entertainment.withdraw(40, "music concert")
-print(food)
-print(clothing)
-print(entertainment)
+        for category_name in categories_name:
+            instance_holder.append(Category(category_name))
+        return instance_holder
 
-print(create_spend_chart([food, clothing, entertainment]))
+    def show_categories(categories_to_show):
+        print("Select a category...")
+        for idx, usr_category in enumerate(categories_to_show):
+            print(f"({idx + 1}) {usr_category.category}")
+
+    usr_categories = create_category_list()
+    while True:
+        print("(1) Deposit into a category")
+        print("(2) Withdraw from a category")
+        print("(3) Transfer C amount of deposits from X category to Y category")
+        print("(4) Get financial history for X category")
+        print("(5) Create a spending chart")
+        print("(6) Flush category list and create a new one")
+        print("(7) Show all financial history for ALL categories")
+        print("(8) Exit script")
+
+        usr_choice = input("Your choice: ").strip()
+        if usr_choice in ['1', '2', '3', '4', '5', '6', '7', '8']:
+            usr_choice = int(usr_choice)
+        else:
+            print("Invalid choice, must only input a single digit from 1 to 8")
+            continue
+
+        if usr_choice == 1 or usr_choice == 2:
+            show_categories(usr_categories)
+            req_category = input("Choose your category (by its digit, not name): ").strip()
+            if req_category.isnumeric():
+                req_category = usr_categories[int(req_category)-1]
+                req_amount = input("Enter amount to deposit/withdraw (only digits or floats, only positive): ").strip()
+                try:
+                    req_amount = float(req_amount)
+                except ValueError:
+                    print("Error, invalid amount. Can only accept digits or floats: like 53 or 30.54")
+                    print("Try again, no spaces, currency signs, commas")
+                    continue
+                req_description = input("Enter a description to remember the reason for this deposit/withdraw: ")
+                if usr_choice == 1:
+                    req_category.deposit(req_amount, req_description)
+                    print(f"Deposit to {req_category.category} successful.")
+                else:
+                    if req_category.withdraw(req_amount, req_description):
+                        print(f"Withdraw from {req_category.category} successful.")
+                    else:
+                        print(f"Withdraw from {req_category.category} failed. Not enough funds to withdraw from.")
+            else:
+                print("Invalid index, you must enter the digit that corresponds to the category")
+                print("1 for 1st category, 2 for 2nd category, etc.. No floats or characters.")
+                print("Try again.")
+                continue
+
+        elif usr_choice == 3:
+            show_categories(usr_categories)
+            withdraw_from_category = input("Choose your category to transfer from (by its digit, not name): ").strip()
+            deposit_to_category = input("Choose your category to transfer to (by its digit, not name): ").strip()
+
+            if withdraw_from_category.isnumeric() and deposit_to_category.isnumeric():
+                withdraw_from_category = usr_categories[int(withdraw_from_category)-1]
+                deposit_to_category = usr_categories[int(deposit_to_category)-1]
+
+                req_amount = input(f"Enter amount to transfer from {withdraw_from_category.category} to {deposit_to_category.category}: ").strip()
+                try:
+                    req_amount = float(req_amount)
+                except ValueError:
+                    print("Error, invalid amount. Can only accept digits or floats: like 53 or 30.54")
+                    print("Try again, no spaces, currency signs, commas")
+                    continue
+                if withdraw_from_category.transfer(req_amount, deposit_to_category):
+                    print(f"Successfully transferred {req_amount} from {withdraw_from_category.category} to {deposit_to_category.category}.")
+                else:
+                    print(f"Failed to transfer {req_amount} from {withdraw_from_category.category} to {deposit_to_category.category}, Not enough funds in {withdraw_from_category.category}.")
+            else:
+                print("Invalid index, you must enter the digit that corresponds to the category")
+                print("1 for 1st category, 2 for 2nd category, etc.. No floats or characters.")
+                print("Try again.")
+                continue
+
+        elif usr_choice == 4:
+            show_categories(usr_categories)
+            req_category = input("Choose your category (by its digit, not name): ").strip()
+            if req_category.isnumeric():
+                req_category = int(req_category)
+                print(usr_categories[req_category-1])
+            else:
+                print("Invalid index, you must enter the digit that corresponds to the category")
+                print("1 for 1st category, 2 for 2nd category, etc.. No floats or characters.")
+                print("Try again.")
+                continue
+
+        elif usr_choice == 5:
+            try:
+                print(create_spend_chart(usr_categories))
+            except ZeroDivisionError:
+                print("Cant generate a spending chart because nothing was spent (or withdrawn).")
+
+        elif usr_choice == 6:
+            usr_categories = create_category_list()
+
+        elif usr_choice == 7:
+            for category_to_output in usr_categories:
+                print(category_to_output)
+
+        elif usr_choice == 8:
+            print("Exiting script...")
+            break
+
+        print("\n")
