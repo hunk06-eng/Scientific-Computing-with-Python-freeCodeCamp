@@ -81,25 +81,61 @@ def add_time(start, duration, day=None):
         else:
             return f"{start[0]}:{start[1]} {am_or_pm}, {days_in_week_idx[new_day]} ({days_to_add} days later)"
 
+def test_cases():
+    starting_times = ["3:00 PM", "11:30 AM", "11:43 AM", "10:10 PM", "11:43 PM", "6:30 PM"]
+    starting_days = [None, "Monday", None, None, "Tuesday", None]
+    times_added = ["3:10", "2:32", "00:20", "3:30", "24:20", "205:12"]
+    expected_output = ["6:10 PM", "2:02 PM, Monday", "12:03 PM", "1:40 AM (next day)", "12:03 AM, Thursday (2 days later)", "7:42 AM (9 days later)"]
 
-"""
-Those are some of freeCodeCamp test-cases, you can remove the docstring to test the code.
+    test_idx = 0
+    for _ in range(len(times_added)):
+        print("\n")
+        print(f"Start at {starting_times[test_idx]} and add {times_added[test_idx]}", "" if starting_days[test_idx] is None else f"On {starting_days[test_idx]}.")
+        result = add_time(starting_times[test_idx], times_added[test_idx], starting_days[test_idx])
+        if result == expected_output[test_idx]:
+            print(f"Test case number {test_idx+1} passed successfully!")
+            print(result)
+        else:
+            print(f"Test case number {test_idx+1} failed.\nExpected output: {expected_output[test_idx]}\nActual output: {result}")
+        test_idx += 1
 
-print(add_time('3:00 PM', '3:10'),
-# Returns: 6:10 PM
+    if test_idx == len(times_added):
+        print("All test-cases passed!")
+    else:
+        print(f"{len(times_added)-test_idx} test cases failed to pass.")
 
-add_time('11:30 AM', '2:32', 'Monday'),
-# Returns: 2:02 PM, Monday
+    print("\n")
 
-add_time('11:43 AM', '00:20'),
-# Returns: 12:03 PM
+if __name__ == "__main__":
+    print("--- Time calculator script ---")
+    days_of_the_week = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+    while True:
+        print("(1) to add time")
+        print("(2) to run built-in test cases")
+        print("(3) to exit script")
 
-add_time('10:10 PM', '3:30'),
-# Returns: 1:40 AM (next day)
+        choice = input("Enter your choice: ").strip()
+        if choice not in ["1", "2", "3"]:
+            print("Invalid choice, you can only enter a digit from 1 to 3")
+            continue
 
-add_time('11:43 PM', '24:20', 'tueSday'),
-# Returns: 12:03 AM, Thursday (2 days later)
+        if choice == "1":
+            start_time = input("Enter starting time (before addition) in 12-hour clock format HH:MM AM (leave space before AM/PM).\ne.g. ( 6:30 PM or 11:42 AM ): ").strip()
+            start_day = input("Enter the day of the week the starting time was in (Saturday, Monday, Thursday)\n(optional, leave empty if not specified): ").strip().capitalize()
+            time_added = input("Enter the time you would like to add to the starting time, in the format (HH:MM), e.g. ( 243:32 ) will add 243 hours and 32 minutes: ").strip()
 
-add_time('6:30 PM', '205:12'))
-# Returns: 7:42 AM (9 days later)
-"""
+            if len(start_day):
+                if start_day not in days_of_the_week:
+                    print(f"Error! {start_day} doesn't exist in {days_of_the_week}. Perhaps you've made a typo?")
+                    print("Please try again...")
+                    continue
+                print(f"The time after adding {time_added} to {start_time} is: {add_time(start_time, time_added, start_day)}")
+                continue
+            else:
+                print(f"The time after adding {time_added} to {start_time} is: {add_time(start_time, time_added)}")
+        elif choice == "2":
+            test_cases()
+            continue
+        elif choice == "3":
+            print("Exiting script...")
+            exit()
