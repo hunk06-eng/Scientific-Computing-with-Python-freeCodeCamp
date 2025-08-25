@@ -1,6 +1,6 @@
 # Certificate Projects
-#### Projects that must be written from scratch and pass all of freeCodeCamp test-cases and requirements to obtain the `Scientific Computing with Python` certificate.
-
+## These are projects that must be written from scratch and pass all of freeCodeCamp test-cases and requirements to obtain the `Scientific Computing with Python` certification.
+### I do not encourage plagiarism, but if you'd like to check if these certification projects pass freeCodeCamp's test cases (without submitting them as your own work), make sure you remove the ``if __name__ == "__main__"`` codeblock.
 # 🧮 Arithmetic Formatter 
 `certificate-projects/ArithmeticFormatter.py`
 
@@ -32,7 +32,7 @@
 - **Key Features**:  
   - Inheritance-based design for shape specialization  
   - Area, perimeter, and diagonal calculations  
-  - ASCII picture generation with size constraints  
+  - Picture generation with size constraints  
   - Shape containment logic
 
 # 🎲 Probability Calculator  
